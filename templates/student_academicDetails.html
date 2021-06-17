@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+ {% block slidebar %}
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'login' %}"> Student Sign In</a></li>
+                                    <li><a href="{% url 'profregistration' %}">Professor Sign Up</a></li>
+                                    <li><a href="{% url 'proflogin' %}">Professor Sign In</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:03326549999"><i class="icon-telephone-2"></i> <span>(033) 2654-9999</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+{% endblock %}
+{% block downslidebar %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url('/static/img/bg-img/breadcumb.jpg');">
+        <div class="bradcumbContent">
+            <h2>Academic Details</h2>
+            <form action="registration" method="POST">
+                 {% csrf_token %}
+                 <div class="container signin">
+                     <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
+                 </div>
+                <div class="input-containerx" >
+                    <label> <b>STUDENT ID</b>  </label>   
+                    <input class="input-field" type="text" placeholder="Student ID" name="id">
+                 </div>
+                <br>
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input class="input-field" type="text" placeholder="Your Name" name="username">
+                  </div>
+                <br>
+                <div class="input-containerx">
+                 <label>   
+                   <b> Gender :</b>
+                    </label><br>  
+                    <input type="radio" value="Male" name="gender" checked > Male   
+                    <input type="radio" value="Female" name="gender"> Female   
+                    <input type="radio" value="Other" name="gender"> Other  
+                </div>
+                <br> 
+                <div class="input-containerx">
+                     <label><b>Date of Birth</b></label>
+                     <input type="date" placeholder= "DOb" >
+                </div>
+                <br>
+                <div class="input-containerx">
+                     <label> <b>Year Of Registration</b>  </label>   
+                    <input class="input-field" type="number" min="1900" max="2099" step="1"placeholder="Year">
+                  
+                </div>
+                <br>
+                <div class="input-containerx">
+                     <label><b> NAME OF PROGAMME</b> </label>   
+                    <select name="course">  
+               
+                        <option value="MSC COMPUTER" >Computer Sci(MSC)</option>  
+                        <option value="MSC PHYSICS" >Physic(MSC)</option>  
+                        <option value="MSC MATH" >Mathematics(MSC)</option>  
+                        <option value="MA YOGA" >Yoga(MA)</option>  
+                        <option value="MA SANSKRIT" >Sanskrit(MA)</option>  
+                        <option value="MSC SPORTS SCI" >Sports Sci(MSC)</option>  
+                        <option value="MSC DATA SCI" >Data Sci(MSC)</option>  
+                    </select>  
+                </div>
+              <br>
+                <div class="input-containerx">
+                   <label><b> CAMPUS</b> </label>   
+                    <select name="campus">  
+                
+                        <option value="belur" >Belur(RKMVERI)</option>  
+                        <option value="narendrapur" >Narendrapur</option>  
+                        <option value="coimbatore" >Coimbatore</option>  
+                        <option value="ranchi" >Ranchi</option>  
+                     </select>  
+                </div>
+                <br>
+                <div class="input-containerx">
+                    <label for="pmarks"><b>UPLOAD YOUR IMAGE </b></label>
+                    <input type="file" placeholder="Upload" name="pic" required > 
+                </div>
+                    <button type="submit" class="btn">submit</button>
+              
+            </form>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+    {% endblock %}
+    <!-- ##### Google Maps ##### -->
+    {% block upperusefullink %}
+    {% endblock%}
+    {% block usefullink %}
+    {% endblock %}
+       

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+ {% block slidebar %}
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'proflogin' %}"> Professor Sign In</a></li>
+                                    <li><a href="{% url 'registration' %}">Student Sign Up</a></li>
+                                    <li><a href="{% url 'login' %}">Student Sign In</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:03326549999"><i class="icon-telephone-2"></i> <span>(033) 2654-9999</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+{% endblock %}
+{% block downslidebar %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url('/static/img/bg-img/breadcumb.jpg');">
+        <div class="bradcumbContent">
+            <h2>PROF. REGISTRATION</h2>
+            <form action="profregistration" method="POST">
+                {% csrf_token %}
+              <div class="container signin">
+                <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
+              </div>
+              <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" type="text" placeholder="Your Id" name="pid">
+              </div>
+              <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" type="text" placeholder="Your Name" name="username">
+              </div>
+            
+              <div class="input-container">
+                <i class="fa fa-envelope icon"></i>
+                <input class="input-field" type="text" placeholder="Email" name="email">
+              </div>
+            
+              <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" type="password" placeholder="Password" name="password">
+              </div>
+              <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" type="password" placeholder="Confirm Password" name="cpassword">
+              </div>
+              <div class="input-container">
+                <i class="fa fa-phone icon"></i>
+                <input class="input-field" type="tel"  placeholder="Mobile Number" maxlength="10"  name="phone">
+              </div>
+            
+              <button type="submit" class="btn">Register</button>
+              
+            </form>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+    {% endblock %}
+    <!-- ##### Google Maps ##### -->
+    {% block upperusefullink %}
+    {% endblock%}
+    {% block usefullink %}
+    {% endblock %}
+       

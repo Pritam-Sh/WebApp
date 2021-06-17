@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+ {% block slidebar %}
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:03326549999"><i class="icon-telephone-2"></i> <span>(033) 2654-9999</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+{% endblock %}
+{% block downslidebar %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url('/static/img/bg-img/breadcumb.jpg');">
+       <div class="bradcumbContent">
+            <h2>COURSE DETAILS</h2>
+       </div>
+    </div>
+    <form action="profcourseenroll" method="POST">
+        {% csrf_token %}
+        <div class="top-popular-courses-area mt-10 section-padding-100-70">
+            <div class="col-12 ">
+                <table class="table table-dark table-striped"> 
+                    <thead> 
+                        <tr> 
+                            <th>Course ID</th> 
+                            <th>Course Name</th> 
+                            <th>Credit</th> 
+                            <th>Type</th> 
+                            <th>Select Course</th>
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+                        {% for prof in prof_number %}
+                            <tr> 
+                                <td>{{ prof.cid}}</td> 
+                                <td>{{ prof.cname }}</td> 
+                                <td>{{ prof.ccredit }}</td> 
+                                <td>{{ prof.ctype }}</td> 
+                                <td><input type="checkbox" name='cid[]' value='{{ prof.cid }}' ></td>
+                            </tr> 
+                        {% endfor %} 
+                    </tbody> 
+                </table> 
+                <button type="submit" class="btn">Submit</button>
+             </div>
+        </div>
+    </form>
+    <!-- ##### Breadcumb Area End ##### -->
+    {% endblock %}
+    <!-- ##### Google Maps ##### -->
+    {% block upperusefullink %}
+    {% endblock%}
+    {% block usefullink %}
+    {% endblock %}
+       

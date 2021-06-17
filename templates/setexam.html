@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    {% block title %}<title>Online  - Examination </title>{% endblock %}
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        
+    <!-- ##### Hero Area Start ##### -->
+    {% block downslidebar %}
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url('/static/img/bg-img/rkm2.jpg');">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-content">
+                                <center>
+                                    <br><br><br><h4 data-animation="fadeInUp" data-delay="100ms">Ramakrishna Mission Vivekananda Educational and Research Institute</h4>
+                                </center>
+                                <br><br><br><br>
+                                <div class="col-5">
+                                    <center>
+                                        <a href="{% url 'registration' %}" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms"><h3><center>Set Examination</center></h3></a>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img" style="background-image: url('/static/img/bg-img/rkm1.jpg');">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <div class="hero-slides-content">
+                                <h4 data-animation="fadeInUp" data-delay="100ms">Ramakrishna Mission Vivekananda Educational and Research Institute</h4>
+                                <h2 data-animation="fadeInUp" data-delay="400ms">Welcome to our <br>Online Examination</h2>
+                                <div class="col-5">
+                                     <a href="{% url 'registration' %}" class="btn academy-btn" data-animation="fadeInUp" data-delay="700ms"><h3>START</h3></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+    {% endblock %}
+    
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+    <script src="{% static 'js/toogle.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+ {% block slidebar %}
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:03326549999"><i class="icon-telephone-2"></i> <span>(033) 2654-9999</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+{% endblock %}
+{% block downslidebar %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url('/static/img/bg-img/breadcumb.jpg');">
+       <div class="bradcumbContent">
+            <h2>ADD EXAM</h2>
+       </div>
+    </div>
+    <form action="addexam" method="POST">
+        {% csrf_token %}
+        <div class="top-popular-courses-area mt-10 section-padding-100-70">
+            <div class="col-12 ">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">   
+                        <div class="input_field_wrapper">
+                            <table class="table table-dark table-striped"> 
+                                <thead> 
+                                    <tr> 
+                                        <th>Course Name</th> 
+                                        <th>Date</th> 
+                                        <th>Start Time</th> 
+                                        <th>End Time</th> 
+                                        <th>Marks</th>
+                                    </tr> 
+                                </thead> 
+                                <tbody>
+                                        <tr> 
+                                            <td>
+                                                <select name="cid"> 
+                                                    <option>----SELECT----</option>  
+                                                    {% for entry in courseId %}
+                                                      <option value="{{ entry.cid }}">{{ entry.cname }}</option>
+                                                    {% endfor %} 
+                                                </select>
+                                            </td> 
+                                            <td><input type="date" placeholder= "" name="date"></td>
+                                            <td><input type="time" name="starttime"></td> 
+                                            <td><input type="time" name="endtime"></td>
+                                            <td><input type="number" name="marks"></td>
+                                        </tr>  
+                                </tbody> 
+                            </table> 
+                       </div>
+                    </div>
+                </div>
+                {% for message in messages %}
+                      <script>
+                        window.onload = function()
+                        {
+                            var retVal = confirm('{{ message }}');
+                            if( retVal == true ) 
+                            {
+                            
+                                window.location = "{% url 'addexam' %}";
+                                return true;
+                            }
+                            else 
+                            {
+                                window.location = "{% url 'index' %}";
+                                return false;
+                            }
+                        }
+                        
+                      </script>
+                    
+                {% endfor %}
+                
+                <button type="submit" class="btn"  >Submit</button>
+             </div>
+        </div>
+    </form>
+    <!-- ##### Breadcumb Area End ##### -->
+    {% endblock %}
+    <!-- ##### Google Maps ##### -->
+    {% block upperusefullink %}
+    {% endblock%}
+    {% block usefullink %}
+    {% endblock %}
+       

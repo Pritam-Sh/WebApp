@@ -1,0 +1,46 @@
+{% extends 'profile.html' %}
+ 
+{% block downslidebar %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url('/static/img/bg-img/breadcumb.jpg');">
+        <div class="bradcumbContent">
+            <h2>COURSE DETAILS</h2>
+            <form action="registeredcourse" method="POST">
+                {% csrf_token %}
+            <table class="table table-dark table-striped"> 
+                <thead> 
+                  <tr> 
+                    <th>Course ID</th> 
+                    <th>Course Name</th> 
+                    <th>Credit</th> 
+                    <th>Type</th>
+                    <th>Select Course</th>
+                  </tr> 
+                </thead> 
+                <tbody> 
+                <!-- jinja2 Technique -->
+                
+                {% for student in student_number %}
+                  <tr> 
+                    <td>{{ student.cid}}</td> 
+                    <td>{{ student.cname }}</td> 
+                    <td>{{ student.ccredit }}</td> 
+                    <td>{{ student.ctype }}</td> 
+                     <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></td>
+                     
+                  </tr> 
+                {% endfor %} 
+                </tbody> 
+              </table>
+              <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+    {% endblock %}
+    <!-- ##### Google Maps ##### -->
+    {% block upperusefullink %}
+    {% endblock%}
+    {% block usefullink %}
+    {% endblock %}
+       

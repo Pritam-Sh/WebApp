@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block slidebar %}
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Course</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:03326549999"><i class="icon-telephone-2"></i> <span>(033) 2654-9999</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+{% endblock %}
+{% block downslidebar %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url('/static/img/bg-img/pc-4.jpg');">
+        <div class="bradcumbContent">
+            <h2>Student Login</h2>
+            {% if messages %}
+            <ul>
+                     {% for message in messages %}
+	                     <li><a style="color:red; text-align: center;">{{ message }}</a></li>
+                     {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="login" method="POST">
+                {% csrf_token %}
+                <div class="imgcontainer">
+                  <img src="{% static 'img/bg-img/img_avatar2.png' %}" alt="Avatar" class="avatar">
+                </div>
+              
+                <div class="input-container">
+                    <i class="fa fa-id-card icon"></i>  
+                  <input class="input-field" type="text" placeholder="Student ID" name="id">
+                </div>
+              
+                <div class="input-container">
+                  <i class="fa fa-key icon"></i>
+                  <input class="input-field" type="password" placeholder="Password" name="psw">
+                </div>
+              
+                <button type="submit" class="btn">Login</button>
+                
+            </form>
+        </div>
+    </div>
+{% endblock %}
+    <!-- ##### Breadcumb Area End ##### -->
+{% block upperusefullink %}
+    <!-- ##### Google Maps ##### -->
+    <!-- ##### Contact Area End ##### -->
+
+ {% endblock %} 
+ {% block usefullink %}
+ {% endblock %}

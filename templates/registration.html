@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+ {% block slidebar %}
+        <!-- Navbar Area -->
+        <div class="academy-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="academyNav">
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'login' %}"> Student Sign In</a></li>
+                                    <li><a href="{% url 'profregistration' %}">Professor Sign Up</a></li>
+                                    <li><a href="{% url 'proflogin' %}">Professor Sign In</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+
+                        <!-- Calling Info -->
+                        <div class="calling-info">
+                            <div class="call-center">
+                                <a href="tel:03326549999"><i class="icon-telephone-2"></i> <span>(033) 2654-9999</span></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+{% endblock %}
+{% block downslidebar %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img" style="background-image: url('/static/img/bg-img/breadcumb.jpg');">
+        <div class="bradcumbContent">
+            
+            <form action="registration" method="POST">
+                {% csrf_token %}
+                
+
+                <div id="mydivon" style="display:block">
+                    <h2>STUDENT REGISTRATION</h2>
+                    <div class="container signin">
+                        <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-envelope icon"></i>
+                        <input class="input-field" type="text" placeholder="Email" name="email">
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input class="input-field" type="password" id="password" placeholder="Password" name="password">
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input class="input-field" type="password" id="confirm_password" placeholder="Confirm Password" name="cpassword">
+                        <span id='message'></span>
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="tel"  placeholder="Mobile Number" maxlength="10"  name="phone">
+                    </div>
+                    <button type="button" class="btn" onclick="toggleDiv('mydiv')">Next</button>
+
+
+                </div>
+                
+                <div id="mydivoff" style="display:none">
+                    <h2>ACADEMIC DETAILS</h2>
+                    <button type="button" onclick="toggleDiv('mydiv')">PREV</button>
+                    <div class="input-container" >
+                        <i class="fa fa-id-card icon"></i>  
+                        <input class="input-field" type="text" placeholder="Student ID" name="id">
+                    </div>
+                    <br>
+                    <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" placeholder="Your Name" name="username">
+                    </div>
+                    <br>
+                    <div class="input-containerx">
+                        <label>   
+                            <b> Gender :</b>
+                        </label><br>  
+                        <input type="radio" value="Male" name="gender" checked > Male   
+                        <input type="radio" value="Female" name="gender"> Female   
+                        <input type="radio" value="Other" name="gender"> Other  
+                    </div>
+                    <br> 
+                    <div class="input-containerx">
+                        <label><b>Date of Birth</b></label>
+                        <input type="date" placeholder= "DOb" name="dob">
+                    </div>
+                    <br>
+                    <div class="input-containerx">
+                        <label> <b>Year Of Registration</b>  </label>   
+                        <input class="input-field" type="number" min="1900" max="2099" step="1"placeholder="Year" name="year">
+                    </div>
+                    <br>
+                    <div class="input-containerx">
+                        <label><b> NAME OF PROGAMME</b> </label>   
+                        <select name="course">  
+                            <option value="Computer Science" >Computer Science</option>  
+                            <option value="Physic" >Physic</option>  
+                            <option value="Mathematics" >Mathematics</option>  
+                            <option value="Yoga" >Yoga</option>  
+                            <option value="Sanskrit" >Sanskrit</option>  
+                            <option value="Sports Science" >Sports Science</option>  
+                            <option value="Data Science" >Data Science</option>  
+                        </select>  
+                    </div>
+                    <br>
+                    <div class="input-containerx">
+                        <label for="pmarks"><b>UPLOAD YOUR IMAGE </b></label>
+                        <input type="file" placeholder="Upload" name="pic" required > 
+                    </div>
+                    <!-- <div class="input-containerx">
+                        <label for="pmarks"><b>UPLOAD YOUR IMAGE </b></label>
+                        <img src="{% url 'facerecognization' %}"> 
+                    </div> -->
+                    <button type="button" onclick="toggleDiv('mydiv')">PREV</button>
+                    <button type="submit" class="btn">Register</button>
+                </div>
+                
+
+                
+            </form>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+    {% endblock %}
+    <!-- ##### Google Maps ##### -->
+    {% block upperusefullink %}
+    {% endblock%}
+    {% block usefullink %}
+    {% endblock %}
+       
